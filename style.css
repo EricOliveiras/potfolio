@@ -1,331 +1,265 @@
 /* style.css */
 
-/* Variáveis de Cores e Fontes */
+/* Definições de Cores e Fontes Estilo Terminal */
 :root {
-  --primary-bg: #1a202c; /* Fundo escuro principal */
-  --secondary-bg: #2d3748; /* Fundo de cards/seções secundárias */
-  --accent-color: #00aaff; /* Cor de destaque (azul/ciano vibrante) */
-  --text-color: #e2e8f0; /* Cor de texto claro */
-  --light-border: #4a5568; /* Cor de borda/divisor leve */
-  --link-color: #63b3ed; /* Cor de link */
-  --subtle-text: #a0aec0; /* Texto mais suave */
-  --tag-color: #4299e1; /* Cor para tags de habilidade */
-  --learning-tag-color: #f6ad55; /* Cor para tags de "aprendendo" */
+  --bg-color: #0d0d0d;
+  --terminal-green: #00ff41;
+  --terminal-dim: #008f11;
+  --prompt-color: #ff00ff;
+  --cyan: #00ffff;
+  --font-main: "Fira Code", monospace;
 }
 
-/* Base */
+/* Base do Corpo */
 body {
-  font-family: "Open Sans", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--terminal-green);
+  font-family: var(--font-main);
   margin: 0;
+  padding: 20px;
+  line-height: 1.4;
+  overflow-x: hidden;
+}
+
+/* Efeito de Scanline (linhas de monitor antigo) */
+.scanline {
+  width: 100%;
+  height: 100px;
+  z-index: 10;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 255, 255, 0.02) 10%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  opacity: 0.1;
+  position: fixed;
+  bottom: 100%;
+  animation: scanline 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% {
+    bottom: 100%;
+  }
+  100% {
+    bottom: -100px;
+  }
+}
+
+/* Container Principal do Terminal */
+.terminal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid var(--terminal-dim);
+  background: rgba(0, 20, 0, 0.95);
   padding: 0;
-  background-color: var(--primary-bg);
-  color: var(--text-color);
-  line-height: 1.6;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Barra de Título (Estilo OS) */
+.terminal-header {
+  background: #333;
+  padding: 10px 15px;
   display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Alinha no topo */
-  min-height: 100vh;
+  align-items: center;
+  border-bottom: 1px solid #444;
 }
 
-.container {
-  max-width: 960px;
-  margin: 40px 20px; /* Margem lateral para mobile */
-  padding: 30px;
-  background-color: var(--secondary-bg);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
-  border: 1px solid var(--light-border);
+.dot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.red {
+  background: #ff5f56;
+}
+.yellow {
+  background: #ffbd2e;
+}
+.green {
+  background: #27c93f;
 }
 
-/* Títulos e Textos */
-h1,
-h2,
-h3 {
-  font-family: "Poppins", sans-serif;
-  color: var(--accent-color);
-  margin-top: 0;
+.terminal-title {
+  color: #bbb;
+  font-size: 12px;
+  margin-left: 10px;
+  user-select: none;
+}
+
+/* Conteúdo Geral */
+.header-content,
+section {
+  padding: 20px;
 }
 
 h1 {
-  font-size: 2.8em;
-  margin-bottom: 5px;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 2em;
-  margin-bottom: 25px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--light-border);
-  font-weight: 600;
-}
-
-h3 {
-  font-size: 1.3em;
-  color: var(--text-color);
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-p {
-  font-size: 1.05em;
-  color: var(--subtle-text);
-}
-
-a {
-  color: var(--link-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-/* Header */
-header {
-  text-align: center;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid var(--light-border);
-}
-
-.profile-name {
-  margin-bottom: 5px;
-}
-
-.profile-title {
-  font-size: 1.3em;
-  color: var(--subtle-text);
+  font-size: 1.8rem;
+  color: var(--terminal-green);
+  text-shadow: 0 0 5px var(--terminal-green);
   margin-top: 0;
 }
 
+h2 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--terminal-dim);
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+.prompt {
+  color: var(--prompt-color);
+  font-weight: bold;
+}
+
+.cyan {
+  color: var(--cyan);
+}
+
+/* Ícones Sociais */
 .social-icons {
   margin-top: 15px;
-  margin-bottom: 10px;
 }
 
 .social-icons a {
-  color: var(--text-color); /* Cor dos ícones */
-  font-size: 2em; /* Tamanho dos ícones */
-  margin: 0 10px; /* Espaçamento entre os ícones */
-  transition: color 0.3s ease, transform 0.2s ease;
+  color: var(--terminal-green);
+  font-size: 1.5rem;
+  margin-right: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .social-icons a:hover {
-  color: var(--accent-color); /* Cor ao passar o mouse */
-  transform: translateY(-3px); /* Pequeno efeito de elevação */
-  text-decoration: none; /* Remove sublinhado ao passar o mouse */
+  color: #fff;
+  text-shadow: 0 0 10px var(--terminal-green);
+  transform: scale(1.2);
 }
 
-.location-info {
-  font-size: 0.95em;
-  color: var(--subtle-text);
+/* --- Controle de Visibilidade dos Blocos (Novidade) --- */
+
+.experience-item,
+.project-item {
+  margin-bottom: 25px;
+  border-left: 2px solid var(--terminal-dim);
+  padding-left: 15px;
+  opacity: 0; /* Começa invisível */
+  transition: opacity 0.5s ease;
+}
+
+/* O JS adiciona esta classe para mostrar o bloco quando chegar a vez dele */
+.item-visible {
+  opacity: 1 !important;
+}
+
+.dir-link {
+  color: var(--cyan);
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.tech-stack {
+  color: var(--prompt-color);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+/* Controle dos Links dos Projetos */
+.project-links {
   margin-top: 10px;
+  display: none; /* Esconde links para não aparecerem "boiando" */
 }
 
-/* Seções */
-section {
-  margin-bottom: 40px;
+.item-visible .project-links {
+  display: block; /* Mostra links só quando o projeto estiver visível */
 }
 
-/* Cards (para Experiência, Educação e Projetos) */
-.card {
-  background-color: #262f3d; /* Um pouco mais claro que o secondary-bg */
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Resumo Profissional */
-.summary p {
-  text-align: justify;
-}
-
-/* Experiência Profissional */
-.experience-item ul {
-  list-style: disc;
-  padding-left: 20px;
-  margin-top: 15px;
-  color: var(--subtle-text);
-}
-
-.experience-item ul li {
-  margin-bottom: 8px;
-  font-size: 0.95em;
-}
-
-.experience-item .company-location,
-.experience-item .period {
-  color: var(--subtle-text);
-  font-size: 0.95em;
-  margin-bottom: 5px;
-}
-
-/* Habilidades */
-.skills .skill-category {
-  margin-bottom: 20px;
-}
-
-.skill-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.skill-list li {
-  background-color: var(--tag-color);
-  color: var(--primary-bg);
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  font-weight: 600;
-  white-space: nowrap;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.skill-list.learning li {
-  /* Caso queira destacar "aprendendo" futuramente */
-  background-color: var(--learning-tag-color);
-  color: var(--primary-bg);
-}
-
-/* Educação */
-.education-item .institution,
-.education-item .period {
-  color: var(--subtle-text);
-  font-size: 0.95em;
-  margin-bottom: 5px;
-}
-
-/* Projetos */
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr; /* Coluna única por padrão */
-  gap: 30px;
-}
-
-@media (min-width: 768px) {
-  .project-grid {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(350px, 1fr)
-    ); /* 2 colunas em telas maiores */
-  }
-}
-
-.project-item .project-period {
-  font-style: italic;
-  font-size: 0.9em;
-  color: var(--subtle-text);
-  margin-bottom: 10px;
-}
-
-.project-item .project-description {
-  text-align: justify;
-  margin-bottom: 15px;
-}
-
-.project-item .project-technologies {
-  font-size: 0.85em;
-  color: var(--subtle-text);
-  margin-top: 5px;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.project-item .project-link {
-  display: inline-block;
-  margin-right: 15px; /* Espaço entre os links */
-  margin-top: 15px;
-  padding: 8px 15px;
-  background-color: var(--accent-color);
-  color: var(--primary-bg);
-  border-radius: 5px;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.project-item .project-link:hover {
-  background-color: #0088cc; /* Um pouco mais escuro ao hover */
-  transform: translateY(-2px);
+.project-links a {
+  color: var(--terminal-green);
+  margin-right: 15px;
+  font-size: 0.9rem;
   text-decoration: none;
+  border: 1px solid var(--terminal-green);
+  padding: 2px 8px;
+  border-radius: 4px;
 }
 
-/* Certificações */
-.certifications-list {
-  list-style: disc;
-  padding-left: 20px;
-  color: var(--subtle-text);
+.project-links a:hover {
+  background: var(--terminal-green);
+  color: #000;
 }
 
-.certifications-list li {
-  margin-bottom: 8px;
-  font-size: 0.95em;
+/* --- Sistema de Digitação (Typing Effect) --- */
+
+.typing {
+  visibility: hidden; /* Esconde o texto antes do JS começar */
+  min-height: 1em;
+  display: block;
 }
 
-.certifications-list li strong {
-  /* Se houver texto em negrito */
-  color: var(--text-color);
+/* Comando no título h2 precisa de flex para alinhar o prompt e o texto */
+h2.typing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  visibility: hidden;
 }
 
-/* Contato (Seção inferior, mantida para email e LinkedIn) */
-.contact-info ul {
-  list-style: none;
-  padding: 0;
+.typing-active::after {
+  content: "█";
+  margin-left: 4px;
+  animation: blink 0.8s infinite;
+  color: var(--terminal-green);
 }
 
-.contact-info ul li {
-  margin-bottom: 10px;
-  font-size: 1.1em;
+/* Efeito de Cursor no Footer */
+.cursor-effect::after {
+  content: "_";
+  animation: blink 1s infinite;
 }
 
-.contact-info ul li strong {
-  color: var(--text-color);
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
-/* Footer */
+/* Rodapé */
 footer {
-  text-align: center;
-  padding-top: 30px;
-  border-top: 1px solid var(--light-border);
-  color: var(--subtle-text);
-  font-size: 0.9em;
-  margin-top: 40px;
+  text-align: left;
+  padding: 20px;
+  font-size: 0.8rem;
+  color: var(--terminal-dim);
+  border-top: 1px solid #222;
 }
 
-/* Responsividade Básica */
+/* Responsividade */
 @media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
   h1 {
-    font-size: 2.2em;
+    font-size: 1.3rem;
   }
-  h2 {
-    font-size: 1.8em;
-  }
-  .container {
-    margin: 20px 15px;
-    padding: 20px;
+  .terminal-container {
+    width: 100%;
   }
   .social-icons a {
-    font-size: 1.8em;
-    margin: 0 8px;
-  }
-  .skill-list li {
-    padding: 6px 12px;
-    font-size: 0.85em;
-  }
-  .project-item .project-link {
-    padding: 6px 12px;
-    font-size: 0.9em;
+    font-size: 1.2rem;
   }
 }
