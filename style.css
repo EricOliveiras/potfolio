@@ -1,6 +1,3 @@
-/* style.css */
-
-/* Definições de Cores e Fontes Estilo Terminal */
 :root {
   --bg-color: #0d0d0d;
   --terminal-green: #00ff41;
@@ -10,7 +7,6 @@
   --font-main: "Fira Code", monospace;
 }
 
-/* Base do Corpo */
 body {
   background-color: var(--bg-color);
   color: var(--terminal-green);
@@ -21,7 +17,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Efeito de Scanline (linhas de monitor antigo) */
 .scanline {
   width: 100%;
   height: 100px;
@@ -38,7 +33,6 @@ body {
   animation: scanline 6s linear infinite;
   pointer-events: none;
 }
-
 @keyframes scanline {
   0% {
     bottom: 100%;
@@ -48,19 +42,15 @@ body {
   }
 }
 
-/* Container Principal do Terminal */
 .terminal-container {
   max-width: 900px;
   margin: 0 auto;
   border: 1px solid var(--terminal-dim);
   background: rgba(0, 20, 0, 0.95);
-  padding: 0;
   box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
   border-radius: 8px;
-  overflow: hidden;
 }
 
-/* Barra de Título (Estilo OS) */
 .terminal-header {
   background: #333;
   padding: 10px 15px;
@@ -68,7 +58,6 @@ body {
   align-items: center;
   border-bottom: 1px solid #444;
 }
-
 .dot {
   height: 12px;
   width: 12px;
@@ -84,51 +73,33 @@ body {
 .green {
   background: #27c93f;
 }
-
 .terminal-title {
   color: #bbb;
   font-size: 12px;
   margin-left: 10px;
-  user-select: none;
 }
 
-/* Conteúdo Geral */
 .header-content,
 section {
   padding: 20px;
 }
-
 h1 {
   font-size: 1.8rem;
-  color: var(--terminal-green);
   text-shadow: 0 0 5px var(--terminal-green);
-  margin-top: 0;
+  margin: 0;
 }
-
 h2 {
   font-size: 1.2rem;
   color: #fff;
-  margin-bottom: 15px;
   border-bottom: 1px solid var(--terminal-dim);
+  padding-bottom: 5px;
 }
-
-h3 {
-  font-size: 1.1rem;
-  margin-top: 0;
-}
-
 .prompt {
   color: var(--prompt-color);
   font-weight: bold;
 }
-
 .cyan {
   color: var(--cyan);
-}
-
-/* Ícones Sociais */
-.social-icons {
-  margin-top: 15px;
 }
 
 .social-icons a {
@@ -136,130 +107,96 @@ h3 {
   font-size: 1.5rem;
   margin-right: 15px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: 0.3s;
   display: inline-block;
 }
-
 .social-icons a:hover {
   color: #fff;
-  text-shadow: 0 0 10px var(--terminal-green);
   transform: scale(1.2);
 }
-
-/* --- Controle de Visibilidade dos Blocos (Novidade) --- */
 
 .experience-item,
 .project-item {
   margin-bottom: 25px;
   border-left: 2px solid var(--terminal-dim);
   padding-left: 15px;
-  opacity: 0; /* Começa invisível */
-  transition: opacity 0.5s ease;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
-
-/* O JS adiciona esta classe para mostrar o bloco quando chegar a vez dele */
 .item-visible {
   opacity: 1 !important;
 }
-
-.dir-link {
-  color: var(--cyan);
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
-
 .tech-stack {
   color: var(--prompt-color);
   font-size: 0.85rem;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
-
-/* Controle dos Links dos Projetos */
 .project-links {
   margin-top: 10px;
-  display: none; /* Esconde links para não aparecerem "boiando" */
+  display: none;
 }
-
 .item-visible .project-links {
-  display: block; /* Mostra links só quando o projeto estiver visível */
+  display: block;
 }
-
 .project-links a {
   color: var(--terminal-green);
   margin-right: 15px;
-  font-size: 0.9rem;
-  text-decoration: none;
   border: 1px solid var(--terminal-green);
   padding: 2px 8px;
   border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
 }
-
 .project-links a:hover {
   background: var(--terminal-green);
   color: #000;
 }
 
-/* --- Sistema de Digitação (Typing Effect) --- */
+.skill-category {
+  border-bottom: 1px solid var(--terminal-dim);
+}
 
 .typing {
-  visibility: hidden; /* Esconde o texto antes do JS começar */
-  min-height: 1em;
-  display: block;
-}
-
-/* Comando no título h2 precisa de flex para alinhar o prompt e o texto */
-h2.typing {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   visibility: hidden;
+  min-height: 1em;
 }
-
 .typing-active::after {
   content: "█";
   margin-left: 4px;
   animation: blink 0.8s infinite;
-  color: var(--terminal-green);
 }
-
-/* Efeito de Cursor no Footer */
-.cursor-effect::after {
-  content: "_";
-  animation: blink 1s infinite;
-}
-
 @keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
   50% {
     opacity: 0;
   }
 }
 
-/* Rodapé */
+/* Input Section */
+.terminal-input-section {
+  padding: 0 20px 20px;
+}
+.input-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#terminal-input {
+  background: transparent;
+  border: none;
+  color: var(--terminal-green);
+  font-family: inherit;
+  font-size: 1.1rem;
+  outline: none;
+  width: 100%;
+}
+#download-msg {
+  margin-top: 10px;
+  color: var(--cyan);
+}
+
 footer {
-  text-align: left;
   padding: 20px;
   font-size: 0.8rem;
   color: var(--terminal-dim);
   border-top: 1px solid #222;
-}
-
-/* Responsividade */
-@media (max-width: 600px) {
-  body {
-    padding: 10px;
-  }
-  h1 {
-    font-size: 1.3rem;
-  }
-  .terminal-container {
-    width: 100%;
-  }
-  .social-icons a {
-    font-size: 1.2rem;
-  }
 }

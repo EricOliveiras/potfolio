@@ -47,3 +47,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   typeSequence();
 });
+
+// Adicione isso ao final do seu arquivo script.js
+const inputField = document.getElementById("terminal-input");
+const messageArea = document.getElementById("download-msg");
+
+inputField.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    const command = inputField.value.toLowerCase().trim();
+
+    if (command === "./download" || command === "get resume") {
+      // Passo 1: Mostra que iniciou
+      messageArea.innerHTML = "Iniciando download... [▒▒▒▒▒▒▒▒▒▒] 0%";
+      messageArea.style.color = "var(--cyan)";
+
+      // Passo 2: Após 2 segundos, atualiza para concluído e inicia o download real
+      setTimeout(() => {
+        messageArea.innerHTML = "Download concluído! [██████████] 100%";
+        messageArea.style.color = "var(--terminal-green)";
+
+        const link = document.createElement("a");
+        // Certifique-se de que o nome do arquivo abaixo seja o mesmo que está na pasta public
+        link.href =
+          "public/Currículo – Desenvolvedor Backend – Eric Nascimento.pdf";
+        link.download = "Eric_Oliveira_CV.pdf";
+        link.click();
+      }, 2000); // 2000 milissegundos = 2 segundos
+    } else {
+      messageArea.innerHTML = `Comando '${command}' não reconhecido. Tente './download'`;
+      messageArea.style.color = "red";
+    }
+    inputField.value = "";
+  }
+});

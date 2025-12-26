@@ -25,8 +25,8 @@
           <span class="terminal-title">bash — eric@dev-backend — 80x24</span>
         </div>
         <div class="header-content">
-          <h1 class="typing" data-delay="10">./eric_oliveira --root</h1>
-          <p class="profile-title typing" data-delay="10">
+          <h1 class="typing" data-delay="80">./eric_oliveira --root</h1>
+          <p class="profile-title typing" data-delay="40">
             > Engenheiro de Software | Desenvolvedor Backend
           </p>
           <div class="social-icons">
@@ -44,10 +44,10 @@
       </header>
 
       <section class="summary">
-        <h2 class="typing" data-delay="10">
+        <h2 class="typing" data-delay="60">
           <span class="prompt">eric@dev:~$</span> cat about_me.txt
         </h2>
-        <p class="typing" data-delay="10">
+        <p class="typing" data-delay="15">
           Desenvolvedor de Sistemas formado em ADS e cursando Engenharia de
           Software (6º semestre). Especialista em Back-end (Node.js, Go, Java)
           com sólida experiência na criação de APIs robustas e arquiteturas
@@ -57,16 +57,16 @@
       </section>
 
       <section class="projects">
-        <h2 class="typing" data-delay="10">
+        <h2 class="typing" data-delay="60">
           <span class="prompt">eric@dev:~$</span> ./run_projects.sh --all
         </h2>
         <div class="project-grid">
           <div class="project-item">
-            <h3 class="typing" data-delay="10">> EcoPonto (API Backend)</h3>
+            <h3 class="typing" data-delay="40">> EcoPonto (API Backend)</h3>
             <p class="tech-stack typing" data-delay="10">
               STACK: Go (Gin), PostgreSQL + PostGIS, SQLx, Docker, JWT
             </p>
-            <p class="typing" data-delay="10">
+            <p class="typing" data-delay="15">
               Plataforma de mapeamento de resíduos com consultas geoespaciais
               avançadas (ST_DWithin), geocoding via OpenStreetMap e gestão de
               containers.
@@ -81,15 +81,14 @@
           </div>
 
           <div class="project-item">
-            <h3 class="typing" data-delay="10">EcoPonto App (Frontend)</h3>
+            <h3 class="typing" data-delay="40">> EcoPonto App (Frontend)</h3>
             <p class="tech-stack typing" data-delay="10">
               STACK: React (Vite), Mapbox GL JS, Tailwind CSS, Zustand,
               Cloudinary
             </p>
-            <p class="typing" data-delay="10">
+            <p class="typing" data-delay="15">
               Interface interativa com geolocalização em tempo real, filtros
-              dinâmicos de resíduos e painel administrativo CRUD com upload de
-              imagens.
+              dinâmicos de resíduos e painel administrativo CRUD.
             </p>
             <div class="project-links">
               <a href="https://ecoponto-front-g6zl.vercel.app" target="_blank"
@@ -99,13 +98,13 @@
           </div>
 
           <div class="project-item">
-            <h3 class="typing" data-delay="10">
+            <h3 class="typing" data-delay="40">
               > SIGDO - Sistema Diário Oficial
             </h3>
             <p class="tech-stack typing" data-delay="10">
               STACK: Go (Golang), React + Vite, PostgreSQL
             </p>
-            <p class="typing" data-delay="10">
+            <p class="typing" data-delay="15">
               Modernização e gestão de publicações oficiais, focada em
               transparência governamental e agilidade nos atos públicos
               municipais.
@@ -120,10 +119,10 @@
           </div>
 
           <div class="project-item">
-            <h3 class="typing" data-delay="10">> Oráculo Literário</h3>
+            <h3 class="typing" data-delay="40">> Oráculo Literário</h3>
             <p class="tech-stack typing" data-delay="10">
               STACK: React 18, Vite, Hono (Serverless), Cloudflare Workers,
-              Prisma, PostgreSQL
+              Prisma
             </p>
             <p class="typing" data-delay="15">
               Aplicação full-stack para descoberta e gestão de leituras. Oferece
@@ -131,11 +130,6 @@
               e sistema de avaliação.
             </p>
             <div class="project-links">
-              <a
-                href="https://github.com/EricOliveiras/sugestor-de-livros"
-                target="_blank"
-                >[source]</a
-              >
               <a href="https://oraculo-literario.vercel.app" target="_blank"
                 >[live_deploy]</a
               >
@@ -144,47 +138,39 @@
         </div>
       </section>
 
-      <section class="experience">
-        <h2 class="typing" data-delay="10">
-          <span class="prompt">eric@dev:~$</span> ls -l /current_job
-        </h2>
-        <div class="experience-item">
-          <span class="dir-link typing" data-delay="10"
-            >[ASSESSOR TÉCNICO]</span
-          >
-          <p class="company-location typing" data-delay="10">
-            SECRETÁRIA MUNICIPAL DE ADMINISTRAÇÃO | Fev 2025 - Momento
-          </p>
-          <p class="description typing" data-delay="10">
-            - Liderança técnica na gestão do Diário Oficial. Foco em automação e
-            conformidade legal.
-          </p>
-        </div>
-      </section>
-
       <section class="skills">
-        <h2 class="typing" data-delay="10">
+        <h2 class="typing" data-delay="60">
           <span class="prompt">eric@dev:~$</span> check_skills --all
         </h2>
         <div class="skill-category">
-          <p class="typing" data-delay="10">
+          <p class="typing" data-delay="5">
             <span class="cyan">LANGUAGES:</span> Go, TypeScript, Java, SQL, PHP
           </p>
-          <p class="typing" data-delay="10">
+          <p class="typing" data-delay="5">
             <span class="cyan">BACKEND:</span> Gin, NestJS, Hono, GraphQL,
             PostGIS
           </p>
-          <p class="typing" data-delay="10">
+          <p class="typing" data-delay="5">
             <span class="cyan">DEVOPS:</span> Docker, Cloudflare Workers,
             Vercel, Linux
           </p>
         </div>
       </section>
 
+      <section class="terminal-input-section">
+        <div class="input-line">
+          <span class="prompt">eric@dev:~$</span>
+          <input
+            type="text"
+            id="terminal-input"
+            placeholder="digite './download' para o CV"
+          />
+        </div>
+        <div id="download-msg"></div>
+      </section>
+
       <footer>
-        <p class="cursor-effect">
-          _ Eric Oliveira v2.1.0 - Connection secured via JWT
-        </p>
+        <p class="cursor-effect">_ Eric Oliveira v2.1.0 - Connection secured</p>
       </footer>
     </div>
     <script src="script.js"></script>
