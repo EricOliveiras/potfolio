@@ -69,7 +69,7 @@ inputField.addEventListener("keypress", function (e) {
         const link = document.createElement("a");
         // Certifique-se de que o nome do arquivo abaixo seja o mesmo que está na pasta public
         link.href =
-          "public/Currículo – Desenvolvedor Backend – Eric Nascimento.pdf";
+          "Currículo – Desenvolvedor Backend – Eric Nascimento.pdf";
         link.download = "Eric_Oliveira_CV.pdf";
         link.click();
       }, 2000); // 2000 milissegundos = 2 segundos
